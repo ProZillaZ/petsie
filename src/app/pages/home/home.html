@@ -1,0 +1,44 @@
+<div class="container-fluid" @transitionEl>
+  <div class="row">
+    <div class="col logo">
+      <img class="item" src="./assets/img/logo.png" />
+    </div>
+  </div>
+  <br /><br /><br />
+  <div class="row">
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="home-item item" [style.background-color]="'#c2fafb'" (click)="select($event, 1)">
+        <img src="./assets/img/search.jpg" />
+        <strong>Search</strong>
+        <h2>The Best Pet Match For You</h2>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="home-item item" [style.background-color]="'#c8ffe8'" (click)="select($event, 2)">
+        <img src="./assets/img/photo.jpg" />
+        <strong>Recognition</strong>
+        <h2>Find Your Pet Breed By Photo</h2>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="home-item item" [style.background-color]="'#fefce3'">
+        <div class="chip">Coming Soon!</div>
+        <img src="./assets/img/adopt.jpg" />
+        <strong>Adopt</strong>
+        <h2>Find A Pet To Adopt Nearby</h2>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br />
+  <div class="row">
+    <div class="col footer">
+      <img class="item" src="./assets/img/vote.png" (click)="vote()" />
+    </div>
+  </div>
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': selected}" [style.background-color]="circleBg"></div>
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': final}" [style.background-color]="'#fff'"></div>
+</div>

@@ -1,0 +1,33 @@
+@import "include";
+
+mat-drawer-container {
+  position: absolute !important;
+  top: 0; left: 0;
+  bottom: 0; right: 0;
+  background-repeat: no-repeat;
+
+  &.positioned {
+    top: 80px;
+  }
+}
+mat-drawer {
+  @include material-box-shadow(2);
+  z-index: 1001;
+}
+mat-card {
+  padding: 30px !important;
+}
+.mat-step-icon, .mat-step-icon-not-touched {
+  font-size: 14px !important;
+  height: 30px !important;
+  width: 30px !important;
+}
+mat-form-field {
+  display: block;
+  width: 100% !important;
+  line-height: 1.3 !important;
+}
+.mat-icon-button i {
+  font-size: 24px;
+  line-height: 24px;
+}

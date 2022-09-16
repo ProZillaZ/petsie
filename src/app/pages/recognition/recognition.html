@@ -1,0 +1,50 @@
+<div class="container" @transitionEl>
+  <div class="row">
+    <div class="col logo" (click)="select($event, 1)">
+      <img class="item" src="./assets/img/logo.png" />
+      <br /><br />
+      <mat-icon class="item">arrow_back</mat-icon>
+    </div>
+  </div>
+  <div class="uploader item" (click)="input.click()" *ngIf="!showResults">
+    <mat-progress-bar mode="indeterminate" [ngClass]="{'show': showLoading}"></mat-progress-bar><br />
+    <img src="./assets/img/photo-placeholder.png" />
+    <br /><br />
+    <span>Click to Upload Your Pet Image (Max 5MB)</span>
+  </div>
+  <div *ngIf="showResults" style="position: relative">
+    <div *ngIf="petsFound.length>0">
+      <button class="try-btn" mat-raised-button color="primary" (click)="reset()">TRY ANOTHER IMAGE</button>
+      <h3>Pet Breeds Found</h3><br />
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 item" *ngFor="let pet of petsFound">
+          <div class="pet-card">
+            <div class="img" *ngIf="pet.energy > 0" [style.background-image]="'url(./assets/img/pets/thumb/' + cs.urlEncoder(pet.name) + '.jpg)'"></div>
+            <div class="img" *ngIf="pet.energy == 0 && pet.type=='cat'" [style.background-image]="getBackground('./assets/img/pet-placeholder-cat.jpg')"></div>
+            <div class="img" *ngIf="pet.energy == 0 && pet.type=='dog'" [style.background-image]="getBackground('./assets/img/pet-placeholder-dog.jpg')"></div>
+            <div class="content">
+              <h2>{{pet.name}}</h2>
+              <h3>{{pet.type}}</h3>
+              <div class="buttons">
+                <button mat-button color="primary" (click)="pickPet($event, pet)" [disabled]="pet.energy == 0">PICK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 no-content" *ngIf="petsFound.length == 0">
+      <br /><br />
+      <img src="./assets/img/no-content.png" /><br />
+      No pets found. Try uploading a more clear image.<br /><br />
+      <button mat-raised-button color="primary" (click)="reset()">TRY ANOTHER IMAGE</button>
+    </div>
+  </div>
+  <input type="file" #input (change)="upload($event.target.files)" style="display:none" />
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': selected}" [style.background-color]="circleBg"></div>
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': final}" [style.background-color]="'#fff'"></div>
+</div>

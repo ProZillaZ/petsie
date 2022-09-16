@@ -1,0 +1,93 @@
+<div class="page" @transitionEl>
+  <div class="container-fluid">
+    <mat-icon (click)="select($event, 1)">clear</mat-icon>
+    <h1 class="item">Compare Pets</h1>
+    <br/><br/>
+    <div class="row info item">
+      <div class="col-1"></div>
+      <div class="col-2">Pet Breed</div>
+      <div class="col-8">
+        <div class="row">
+          <div class="col-1">Size</div>
+          <div class="col-1">Energy Level</div>
+          <div class="col-1">Quietness</div>
+          <div class="col-1">Friendliness</div>
+          <div class="col-1">Grooming Ease</div>
+          <div class="col-1">Shedding</div>
+          <div class="col-1">Health</div>
+          <div class="col-1">Intelligence</div>
+          <div class="col-1">Trainable</div>
+          <div class="col-1">Friendliness</div>
+          <div class="col-1">Cold Weather Tolerance</div>
+          <div class="col-1">Hot Weather Tolerance</div>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-12 item" *ngFor="let pet of cs.compareList; let i = index">
+        <div class="row pet-card">
+          <div class="col-1 img"
+               [style.background-image]="'url(./assets/img/pets/thumb/' + cs.urlEncoder(pet.name) + '.jpg)'"></div>
+          <div class="col-2">
+            <h2>{{pet.name}}</h2>
+            <h3>{{pet.type}}</h3>
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <div class="col-1"><span [style.height.px]="pet.size*15" [style.width.px]="pet.size*15"
+                                       [style.line-height.px]="pet.size*15"
+                                       [style.font-size.px]="pet.size*8">{{pet.size}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.energy*15" [style.width.px]="pet.energy*15"
+                                       [style.line-height.px]="pet.energy*15"
+                                       [style.font-size.px]="pet.energy*8">{{pet.energy}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.quietness*15" [style.width.px]="pet.quietness*15"
+                                       [style.line-height.px]="pet.quietness*15"
+                                       [style.font-size.px]="pet.quietness*8">{{pet.quietness}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.kidFriendly*15" [style.width.px]="pet.kidFriendly*15"
+                                       [style.line-height.px]="pet.kidFriendly*15"
+                                       [style.font-size.px]="pet.kidFriendly*8">{{pet.kidFriendly}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.easyToGroom*15" [style.width.px]="pet.easyToGroom*15"
+                                       [style.line-height.px]="pet.easyToGroom*15"
+                                       [style.font-size.px]="pet.easyToGroom*8">{{pet.easyToGroom}}</span></div>
+              <div class="col-1"><span [style.height.px]="(5-pet.lowShedding)*15" [style.width.px]="(5-pet.lowShedding)*15"
+                                       [style.line-height.px]="(5-pet.lowShedding)*15"
+                                       [style.font-size.px]="(5-pet.lowShedding)*8">{{(5-pet.lowShedding)}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.health*15" [style.width.px]="pet.health*15"
+                                       [style.line-height.px]="pet.health*15"
+                                       [style.font-size.px]="pet.health*8">{{pet.health}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.intelligence*15" [style.width.px]="pet.intelligence*15"
+                                       [style.line-height.px]="pet.intelligence*15"
+                                       [style.font-size.px]="pet.intelligence*8">{{pet.intelligence}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.trainable*15" [style.width.px]="pet.trainable*15"
+                                       [style.line-height.px]="pet.trainable*15"
+                                       [style.font-size.px]="pet.trainable*8">{{pet.trainable}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.animalFriendly*15"
+                                       [style.line-height.px]="pet.animalFriendly*15"
+                                       [style.width.px]="pet.animalFriendly*15"
+                                       [style.font-size.px]="pet.animalFriendly*8">{{pet.animalFriendly}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.standCold*15" [style.width.px]="pet.standCold*15"
+                                       [style.line-height.px]="pet.standCold*15"
+                                       [style.font-size.px]="pet.standCold*8">{{pet.standCold}}</span></div>
+              <div class="col-1"><span [style.height.px]="pet.standHot*15" [style.width.px]="pet.standHot*15"
+                                       [style.line-height.px]="pet.standHot*15"
+                                       [style.font-size.px]="pet.standHot*8">{{pet.standHot}}</span></div>
+            </div>
+          </div>
+          <div class="col-1">
+            <button mat-icon-button color="warn" (click)="removeCompare(i)">
+              <mat-icon>clear</mat-icon>
+            </button>
+            <button mat-icon-button (click)="pickPet($event, pet)">
+              <mat-icon>done_all</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': selected}" [style.background-color]="circleBg"></div>
+</div>

@@ -1,0 +1,111 @@
+<div class="container-fluid no-gutters" @transitionEl>
+  <div class="row">
+    <div class="col-xl-5 col-lg-4 img item"
+         [style.background-image]="'url(./assets/img/pets/thumb/' + cs.urlEncoder(cs.pickedPet.name) + '.jpg)'">
+      <div class="pet-name">
+        <h1 class="item">{{cs.pickedPet.name}}</h1>
+        <h2 class="item">{{cs.pickedPet.type}}</h2>
+      </div>
+    </div>
+    <div class="col-xl-7 col-lg-8 content">
+      <div class="logo" (click)="select($event, 1)">
+        <img src="./assets/img/logo.png"/><br/><br/>
+        <mat-icon>arrow_back</mat-icon>
+      </div>
+      <br/><br/>
+      <h2 class="item">Pet Characteristics</h2>
+      <div class="row">
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Size</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.size>3}">
+            <span [style.height.px]="cs.pickedPet.size*30" [style.line-height.px]="cs.pickedPet.size*30">{{cs.pickedPet.size}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Energy Level</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.energy>3}">
+            <span [style.height.px]="cs.pickedPet.energy*30" [style.line-height.px]="cs.pickedPet.energy*30">{{cs.pickedPet.energy}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Quietness</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.quietness>3}">
+            <span [style.height.px]="cs.pickedPet.quietness*30" [style.line-height.px]="cs.pickedPet.quietness*30">{{cs.pickedPet.quietness}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Kid Friendliness</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.kidFriendly>3}">
+            <span [style.height.px]="cs.pickedPet.kidFriendly*30" [style.line-height.px]="cs.pickedPet.kidFriendly*30">{{cs.pickedPet.kidFriendly}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Ease of Grooming</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.easyToGroom>3}">
+            <span [style.height.px]="cs.pickedPet.easyToGroom*30" [style.line-height.px]="cs.pickedPet.easyToGroom*30">{{cs.pickedPet.easyToGroom}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Shedding</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.lowShedding>3}">
+            <span [style.height.px]="(5-cs.pickedPet.lowShedding)*30" [style.line-height.px]="(5-cs.pickedPet.lowShedding)*30">{{(5-cs.pickedPet.lowShedding)}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Health</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.health>3}">
+            <span [style.height.px]="cs.pickedPet.health*30" [style.line-height.px]="cs.pickedPet.health*30">{{cs.pickedPet.health}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Intelligence</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.intelligence>3}">
+            <span [style.height.px]="cs.pickedPet.intelligence*30" [style.line-height.px]="cs.pickedPet.intelligence*30">{{cs.pickedPet.intelligence}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Trainable</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.trainable>3}">
+            <span [style.height.px]="cs.pickedPet.trainable*30" [style.line-height.px]="cs.pickedPet.trainable*30">{{cs.pickedPet.trainable}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Animal Friendliness</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.animalFriendly>3}">
+            <span [style.height.px]="cs.pickedPet.animalFriendly*30" [style.line-height.px]="cs.pickedPet.animalFriendly*30">{{cs.pickedPet.animalFriendly}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Cold Weather Tolerance</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.standCold>3}">
+            <span [style.height.px]="cs.pickedPet.standCold*30" [style.line-height.px]="cs.pickedPet.standCold*30">{{cs.pickedPet.standCold}}</span>
+          </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+          <strong>Hot Weather Tolerance</strong>
+          <div class="character"
+               [ngClass]="{'white': cs.pickedPet.standHot>3}">
+            <span [style.height.px]="cs.pickedPet.standHot*30" [style.line-height.px]="cs.pickedPet.standHot*30">{{cs.pickedPet.standHot}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': selected}" [style.background-color]="circleBg"></div>
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': final}" [style.background-color]="'#fff'"></div>
+</div>

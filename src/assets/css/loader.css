@@ -1,0 +1,20 @@
+.loading-container {
+  background-color: #f8beb6;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+.loader {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 350px;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.loader img {
+  width: 100%;
+}

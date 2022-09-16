@@ -1,0 +1,49 @@
+<div class="page" @transitionEl>
+  <div class="container-fluid">
+    <mat-icon (click)="select($event, 1)">clear</mat-icon>
+    <h1 class="item">Match Your Lifestyle with Your Future Pet</h1>
+    <br/><br/>
+    <h3 class="item">Answer <u>MAXIMUM 2</u> of the following questions about your lifestyle:</h3><br /><br />
+    <h4 class="item">Which one of the following describe your living place:</h4><br />
+    <div class="item">
+      <mat-radio-group [(ngModel)]="cs.place">
+        <mat-radio-button [value]="1">Small apartment without garden</mat-radio-button><br />
+        <mat-radio-button [value]="2">Small apartment with garden</mat-radio-button><br />
+        <mat-radio-button [value]="3">Medium apartment without garden</mat-radio-button><br />
+        <mat-radio-button [value]="4">Medium apartment with garden</mat-radio-button><br />
+        <mat-radio-button [value]="5">Larger than the ones above</mat-radio-button><br />
+      </mat-radio-group>
+    </div>
+    <br /><br />
+    <h4 class="item">How active are you personally:</h4><br />
+    <div class="item">
+      <mat-radio-group [(ngModel)]="cs.active">
+        <mat-radio-button [value]="1">Not active</mat-radio-button><br />
+        <mat-radio-button [value]="2">Partially Active</mat-radio-button><br />
+        <mat-radio-button [value]="3">Active</mat-radio-button><br />
+        <mat-radio-button [value]="4">Very active</mat-radio-button><br />
+        <mat-radio-button [value]="5">Athletic</mat-radio-button><br />
+      </mat-radio-group>
+    </div>
+    <br /><br />
+    <h4 class="item">When you come back home, how quiet do you want to your place to be?</h4><br />
+    <div class="item">
+      <mat-radio-group [(ngModel)]="cs.quiet">
+        <mat-radio-button [value]="1">Very Quiet</mat-radio-button><br />
+        <mat-radio-button [value]="2">Quiet</mat-radio-button><br />
+        <mat-radio-button [value]="3">Average</mat-radio-button><br />
+        <mat-radio-button [value]="4">Noisy</mat-radio-button><br />
+        <mat-radio-button [value]="5">Very Noisy</mat-radio-button><br />
+      </mat-radio-group>
+    </div>
+    <br /><br />
+    <button class="item" mat-raised-button color="primary" [disableRipple]="true" (click)="select($event, 1)">LETS FIND YOU A PET!</button>
+    <br /><br />
+  </div>
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': selected}" [style.background-color]="circleBg"></div>
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': final}" [style.background-color]="'#fff'"></div>
+</div>

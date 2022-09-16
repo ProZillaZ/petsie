@@ -1,0 +1,223 @@
+<div class="container-fluid" @transitionEl>
+  <div class="logo-mobile item" (click)="select($event, 3)">
+    <img src="./assets/img/logo.png" /><br /><br />
+    <mat-icon>arrow_back</mat-icon>
+  </div>
+  <div class="row header item">
+    <div class="col-auto logo" (click)="select($event, 3)">
+      <br /><br />
+      <img src="./assets/img/logo.png" /><br /><br />
+      <mat-icon>arrow_back</mat-icon>
+    </div>
+    <div class="col">
+      <div class="filters" [ngClass]="{'expand': filterHeight}">
+        <img src="./assets/img/search.jpg" />
+        <h1>The Best Pet Match For You</h1><br />
+        <form [formGroup]="petSearch">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <mat-form-field>
+                <mat-select placeholder="Pet Size" formControlName="size">
+                  <mat-option [value]="0">Any Kind</mat-option>
+                  <mat-option [value]="1">Tiny</mat-option>
+                  <mat-option [value]="2">Small</mat-option>
+                  <mat-option [value]="3">Medium</mat-option>
+                  <mat-option [value]="4">Large</mat-option>
+                  <mat-option [value]="5">Extra Large</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <mat-form-field>
+                <mat-select placeholder="Pet Energy Level" formControlName="energy">
+                  <mat-option [value]="0">Any Kind</mat-option>
+                  <mat-option [value]="1">Very Low Activity</mat-option>
+                  <mat-option [value]="2">Low Activity</mat-option>
+                  <mat-option [value]="3">Average Activity</mat-option>
+                  <mat-option [value]="4">High Activity</mat-option>
+                  <mat-option [value]="5">Hyperactive</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <mat-form-field>
+                <mat-select placeholder="Pet Quietness" formControlName="quietness">
+                  <mat-option [value]="0">Any Kind</mat-option>
+                  <mat-option [value]="1">Very Quiet</mat-option>
+                  <mat-option [value]="2">Quiet</mat-option>
+                  <mat-option [value]="3">Average Noise</mat-option>
+                  <mat-option [value]="4">Noisy</mat-option>
+                  <mat-option [value]="5">Very Noisy</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="more-filters" *ngIf="moreFilters" [ngClass]="{'expand': moreFilters}">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <mat-form-field>
+                  <mat-select placeholder="Kid Friendliness" formControlName="kidFriendly">
+                    <mat-option [value]="0">Any Kind</mat-option>
+                    <mat-option [value]="1">No Friendly</mat-option>
+                    <mat-option [value]="2">OK</mat-option>
+                    <mat-option [value]="3">Average</mat-option>
+                    <mat-option [value]="4">Friendly</mat-option>
+                    <mat-option [value]="5">Very Friendly</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <mat-form-field>
+                  <mat-select placeholder="Grooming Ease" formControlName="easyToGroom">
+                    <mat-option [value]="0">Any Kind</mat-option>
+                    <mat-option [value]="1">Challenging</mat-option>
+                    <mat-option [value]="2">Difficult</mat-option>
+                    <mat-option [value]="3">Average</mat-option>
+                    <mat-option [value]="4">Easy</mat-option>
+                    <mat-option [value]="5">Very Easy</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <mat-form-field>
+                  <mat-select placeholder="Shedding" formControlName="lowShedding">
+                    <mat-option [value]="0">Any Kind</mat-option>
+                    <mat-option [value]="5">Very Low</mat-option>
+                    <mat-option [value]="4">Low</mat-option>
+                    <mat-option [value]="3">Average</mat-option>
+                    <mat-option [value]="2">High</mat-option>
+                    <mat-option [value]="1">Very High</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <mat-form-field>
+                  <mat-select placeholder="Pet Health" formControlName="health">
+                    <mat-option [value]="0">Any Kind</mat-option>
+                    <mat-option [value]="1">Very Unhealthy Breed</mat-option>
+                    <mat-option [value]="2">Unhealthy Breed</mat-option>
+                    <mat-option [value]="3">Average Health</mat-option>
+                    <mat-option [value]="4">Healthy Breed</mat-option>
+                    <mat-option [value]="5">Very Healthy Breed</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <mat-form-field>
+                  <mat-select placeholder="Pet Intelligence" formControlName="intelligence">
+                    <mat-option [value]="0">Any Kind</mat-option>
+                    <mat-option [value]="1">Not Intelligence</mat-option>
+                    <mat-option [value]="2">Below Average</mat-option>
+                    <mat-option [value]="3">Average</mat-option>
+                    <mat-option [value]="4">Smart</mat-option>
+                    <mat-option [value]="5">Genius</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <mat-form-field>
+                  <mat-select placeholder="Pet Trainable" formControlName="trainable">
+                    <mat-option [value]="0">Any Kind</mat-option>
+                    <mat-option [value]="1">Not Trainable</mat-option>
+                    <mat-option [value]="2">Below Average</mat-option>
+                    <mat-option [value]="3">Average</mat-option>
+                    <mat-option [value]="4">Trainable</mat-option>
+                    <mat-option [value]="5">Very Trainable</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <mat-form-field>
+                  <mat-select placeholder="Animal Friendliness" formControlName="animalFriendly">
+                    <mat-option [value]="0">Any Kind</mat-option>
+                    <mat-option [value]="1">No Friendly</mat-option>
+                    <mat-option [value]="2">OK</mat-option>
+                    <mat-option [value]="3">Average</mat-option>
+                    <mat-option [value]="4">Friendly</mat-option>
+                    <mat-option [value]="5">Very Friendly</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <mat-form-field>
+                  <mat-select placeholder="Cold Weather Tolerance" formControlName="standCold">
+                    <mat-option [value]="0">Any Kind</mat-option>
+                    <mat-option [value]="1">Not Tolerance</mat-option>
+                    <mat-option [value]="2">Below Average</mat-option>
+                    <mat-option [value]="3">Average</mat-option>
+                    <mat-option [value]="4">Tolerance</mat-option>
+                    <mat-option [value]="5">High Tolerance</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <mat-form-field>
+                  <mat-select placeholder="Hot Weather Tolerance" formControlName="standHot">
+                    <mat-option [value]="0">Any Kind</mat-option>
+                    <mat-option [value]="1">Not Tolerance</mat-option>
+                    <mat-option [value]="2">Below Average</mat-option>
+                    <mat-option [value]="3">Average</mat-option>
+                    <mat-option [value]="4">Tolerance</mat-option>
+                    <mat-option [value]="5">High Tolerance</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="filter-btns">
+          <button mat-raised-button color="primary" [disableRipple]="true" (click)="select($event, 4)">START HELP WIZARD</button>
+          <button mat-raised-button [disableRipple]="true" *ngIf="!moreFilters" (click)="showMoreFilters()">SHOW MORE FILTERS</button>
+          <button mat-raised-button [disableRipple]="true" *ngIf="moreFilters" (click)="showMoreFilters()">SHOW LESS FILTERS</button>
+          <button mat-raised-button [disableRipple]="true" (click)="reset()">RESET FILTERS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br /><br />
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 item" *ngFor="let pet of filterList()">
+      <div class="pet-card">
+        <div class="img" [style.background-image]="'url(./assets/img/pets/thumb/' + cs.urlEncoder(pet.name) + '.jpg)'"></div>
+        <div class="content">
+          <h2>{{pet.name}}</h2>
+          <h3>{{pet.type}}</h3>
+          <div class="buttons">
+            <button mat-raised-button [disabled]="!checkComapare(pet)" (click)="compare(pet)">COMPARE</button>
+            <button mat-button color="primary" (click)="pickPet($event, pet)">PICK</button>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+    <div class="col-12 no-content" *ngIf="filterList().length == 0">
+      <img src="./assets/img/no-content.png" /><br />
+      No pets found. Try changing your filters.
+    </div>
+  </div>
+  <br />
+  <button class="show-more-btn" mat-raised-button color="primary" *ngIf="filterList().length < list.length && filterList().length > 12" (click)="limit=limit+12">SHOW MORE</button>
+</div>
+<div class="compare-list" [ngClass]="{'show': cs.compareList.length > 0}">
+  <h3>Compare List ({{cs.compareList.length}})</h3><br />
+  <div class="item" *ngFor="let pet of cs.compareList; let i = index">
+    <div class="img" [style.background-image]="'url(./assets/img/pets/thumb/' + cs.urlEncoder(pet.name) + '.jpg)'"></div>
+    {{pet.name}}<br />
+    <span>{{pet.type}}</span>
+    <button mat-icon-button (click)="clearCompare(i)"><mat-icon>clear</mat-icon></button>
+  </div>
+  <br />
+  <button mat-raised-button color="primary" (click)="select($event, 1)" *ngIf="cs.compareList.length > 1">START COMPARING</button>
+</div>
+
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': selected}" [style.background-color]="circleBg"></div>
+</div>
+<div class="circle-container" [style.top.px]="clickTop" [style.left.px]="clickLeft" [ngClass]="{'active': selected}">
+  <div class="click-circle" [ngClass]="{'active': final}" [style.background-color]="'#fff'"></div>
+</div>

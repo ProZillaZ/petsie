@@ -1,0 +1,110 @@
+@import "../../../assets/scss/include";
+
+.container-fluid {
+  max-width: 1700px;
+  padding-top: 5%;
+}
+.logo {
+  text-align: center;
+
+  img {
+    height: 180px;
+  }
+}
+.home-item {
+  position: relative;
+  @include expo-transition-no-z;
+  padding: 60px 35% 60px 60px;
+  border-radius: 150px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  overflow: visible;
+  margin-bottom: 15px;
+
+  &:hover {
+    @include material-box-shadow(4);
+    @include transform(scale(0.98));
+  }
+  &:active {
+    @include material-box-shadow(5);
+    @include transform(scale(0.90));
+  }
+
+  img {
+    @include centerize(true, false);
+    right: 50px;
+    width: 25%;
+    max-width: 120px;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: 300;
+  }
+  .chip {
+    @include position(absolute, 20px -20px null null);
+    padding: 5px 10px;
+    background-color: $color-red;
+    color: #fff;
+    border-radius: 20px;
+    z-index: 99;
+  }
+}
+.footer {
+  text-align: center;
+
+  img {
+    @include expo-transition;
+    height: 15px;
+    cursor: pointer;
+
+    &:hover {
+      @include transform(scale(1.02));
+    }
+  }
+}
+.circle-container {
+  position: fixed;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+
+  &.active {
+    z-index: 999;
+  }
+}
+.click-circle {
+  @include animation-fix-no-z;
+  border-radius: 50%;
+  height: 100vh;
+  width: 100vh;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: transform .7s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  -moz-transition: transform .7s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  -ms-transition: transform .7s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  -o-transition: transform .7s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition: transform .7s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+  &.active {
+    -webkit-transform: scale(4);
+    -moz-transform: scale(4);
+    -ms-transform: scale(4);
+    -o-transform:scale(4);
+    transform: scale(4);
+  }
+}
+@media (max-width: 380px) {
+  .home-item {
+    padding: 60px;
+
+    img {
+      display: none;
+    }
+  }
+}
